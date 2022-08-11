@@ -23,7 +23,7 @@ from setuptools import setup, find_packages
 
 SCRIPT_DIR = path.abspath(path.dirname(__file__))
 
-package_version = '2.2.2'
+package_version = '2.2.3'
 
 with open(path.join(SCRIPT_DIR, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
