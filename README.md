@@ -6,7 +6,7 @@ Reason of fork - abandoned project. I need a specific patch. Fixing tensorflow d
 
 Install: 
 
-```json
+```
 pip install guesslang-experimental
 ```
 
