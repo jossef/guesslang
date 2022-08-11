@@ -17,44 +17,26 @@ Setup Guesslang
 import ast
 from pathlib import Path
 import re
+from os import path
 
 from setuptools import setup, find_packages
 
+SCRIPT_DIR = path.abspath(path.dirname(__file__))
 
-def version(base_module: str) -> str:
-    version_pattern = r'__version__\s+=\s+(.*)'
-    init_path = Path(Path(__file__).parent, base_module, '__init__.py')
-    found = re.search(version_pattern, init_path.read_text())
-    if not found:
-        raise RuntimeError(f'{base_module} version not found')
+package_version = '2.2.2'
 
-    repr_value = found.group(1)
-    return str(ast.literal_eval(repr_value))
-
-
-def long_description(filename: str, end_tag: str, doc_url: str) -> str:
-    lines = []
-    for line in Path(filename).read_text().splitlines():
-        if end_tag in line:
-            break
-
-        lines.append(line)
-
-    lines.append('Full documentation at {}'.format(doc_url))
-    return '\n'.join(lines)
+with open(path.join(SCRIPT_DIR, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
 
 
 setup(
     # Package info
-    name='guesslang',
-    author='Y. SOMDA',
-    url='https://github.com/yoeo/guesslang',
+    name='guesslang-experimental',
+    author='jossef',
+    url='https://github.com/jossef/guesslang',
     description='Detect the programming language of a source code',
-    long_description=long_description(
-        'docs/contents.rst',
-        'end-description',
-        'https://guesslang.readthedocs.io/en/latest/',
-    ),
+    long_description_content_type='text/markdown',
+    long_description=long_description,
     license='MIT',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
@@ -71,7 +53,7 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
     # Install setup
-    version=version('guesslang'),
+    version=package_version,
     platforms='any',
     packages=find_packages(exclude=['tests', 'tools']),
     install_requires=Path('requirements.txt').read_text(),

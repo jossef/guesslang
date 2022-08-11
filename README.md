@@ -1,3 +1,17 @@
+This is **NOT A TYPOSQUATTING PACKAGE**
+
+It's a fork of the original https://github.com/yoeo/guesslang / pypi package [guesslang](https://pypi.org/project/guesslang/)
+
+Reason of fork - abandoned project. I need a specific patch. Fixing tensorflow dependency myself until https://github.com/yoeo/guesslang/pull/62 is merged
+
+Install: 
+
+```json
+pip install guesslang-experimental
+```
+
+-----
+
 # Guesslang [![Build Status](https://github.com/yoeo/guesslang/actions/workflows/python-package.yml/badge.svg)](https://github.com/yoeo/guesslang/actions) [![Documentation Status](https://readthedocs.org/projects/guesslang/badge/?version=latest)](http://guesslang.readthedocs.io/en/latest/?badge=latest) [![Pypi version](https://img.shields.io/pypi/v/guesslang.svg)](https://pypi.python.org/pypi/guesslang)
 
 ![Guesslang](docs/_static/images/guesslang-readme.png)
