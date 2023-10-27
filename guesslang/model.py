@@ -10,7 +10,10 @@ from typing import List, Tuple, Dict, Any, Callable
 
 import tensorflow as tf
 from tensorflow.estimator import ModeKeys, Estimator
-from tensorflow.python.training.tracking.tracking import AutoTrackable
+try:
+    from tensorflow.python.training.tracking.tracking import AutoTrackable
+except ModuleNotFoundError:
+    from tensorflow.python.trackable.autotrackable import AutoTrackable
 
 
 LOGGER = logging.getLogger(__name__)
